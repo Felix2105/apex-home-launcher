@@ -98,7 +98,7 @@ class MainActivity : Activity() {
             setHintTextColor(Color.LTGRAY)
             setTextColor(white)
             textSize = 15f
-            singleLine = true
+            setSingleLine(true)
             setPadding(dp(14), dp(8), dp(14), dp(8))
             background = rounded(panel, 12, Color.rgb(52, 65, 84))
             addTextChangedListener(SimpleWatcher { if (drawerOpen) showApps(it) })
@@ -221,7 +221,7 @@ class MainActivity : Activity() {
             5 -> {
                 addSection("Health & Focus")
                 addTileGrid(listOf(
-                    Tile("CLOCK", "Alarms and timers") { launchIntent(Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_APP_CLOCK)) },
+                    Tile("CLOCK", "Alarms and timers") { launchIntent(Intent(android.provider.AlarmClock.ACTION_SHOW_ALARMS)) },
                     Tile("MUSIC", "Music player") { launchIntent(Intent(Intent.ACTION_VIEW, Uri.parse("https://open.spotify.com"))) },
                     Tile("SETTINGS", "Device settings") { launchIntent(Intent(Settings.ACTION_SETTINGS)) }
                 ))
